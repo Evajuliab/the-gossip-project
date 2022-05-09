@@ -1,0 +1,16 @@
+<h1> Bienvenue <%= params[:user_entry] %></h1>
+
+<p>Voici notre site potins, plutôt chouette non ?? 
+
+
+<form action = '/gossips/new/' method= 'POST'>
+Ton petit nom ici: <input type ='text' name= 'gossip_author'/><br/><br/>
+Ton potin la:   <input type ='text' name= 'gossip_content'/><br/><br/>
+<input type='submit'/>
+</form>
+
+<% gossip.each.with_index do |gossip| %>
+ <% end %>
+
+
+</p>
