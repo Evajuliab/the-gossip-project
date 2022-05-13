@@ -1,2 +1,51 @@
-<h1>Gossips#new</h1>
-<p>Find me in app/views/gossips/new.html.erb</p>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+<div class="container-fluid">
+<a class="navbar-brand" <%= link_to "The Gossip project", root_path %></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link active" <%= link_to "Accueil", root_path %></a>
+    <a class="nav-item nav-link" <%= link_to "Team", static_team_path %></a>
+    <a class="nav-item nav-link" <%= link_to "Contact", contact_path %></a>
+    <a class="nav-item nav-link" <%= link_to "Créer un potin", new_gossip_path %></a>
+
+    <a class="nav-item nav-link" <%= link_to "Créer son compte", signup_path %></a>
+    <a class="nav-item nav-link" <%= link_to "Se connecter", signin_path %></a>
+
+    <% if session[:user_id] %>
+     <a class="nav-item nav-link" <%= link_to 'Se deconnecter', logout_path, :method => :delete %>
+  <% end %></a>
+
+ <% if session[:user_id] %>
+ <a class="nav-link disabled">  <%= current_user.email %>
+<% end %></a>
+
+  </div>
+</div>
+</div>
+</nav>
+
+<h2> Créé ton potin et sois créatif ;) </h2>
+
+    <%= form_for @gossip, method: 'post' do |f| %>
+   
+      Titre du gossip : <%= f.text_field :title %> <br/><br/>
+      Ton gossip : <%= f.text_area :content %><br/> <br/>
+  
+      <%= f.submit %>
+    <% end %>
+
+
+    <% if @gossip.errors.any? %>
+    
+    <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+    <ul>
+      <% @gossip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    </div>
+  

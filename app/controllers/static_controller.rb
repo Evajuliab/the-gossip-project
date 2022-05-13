@@ -6,7 +6,7 @@ class StaticController < ApplicationController
   end
 
   def index
-    puts  params[:user_entry]  
+    puts params[:user_entry]  
   end
 end
 

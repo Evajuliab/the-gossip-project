@@ -1,0 +1,10 @@
+
+    <%= form_for @gossip, method: 'patch' do |f| %>
+   
+        Titre du gossip : <%= f.text_field :title %> <br/><br/>
+        Ton gossip : <%= f.text_area :content %><br/> <br/>
+    
+        <%= f.submit %>
+      <% end %>
+  
+      

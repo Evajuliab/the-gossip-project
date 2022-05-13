@@ -8,11 +8,9 @@
 
 require 'faker'
 
-# City.destroy_all
-# User.destroy_all
-# Gossip.destroy_all
-# Join.destroy_all
-# Tag.destroy_all
+
+
+
 
 10.times do 
    City.create(
@@ -54,15 +52,15 @@ rand(1..3).times do
    end
 end
 
-100.times do
-   user_sender = User.all.sample
-   user_receiver = user_sender
-   while user_receiver == user_sender
-      user_receiver = User.all.sample
-   end
-      PrivateMessage.create( 
-         content: Faker::Lorem.sentence(word_count: 5),
-         recipient: user_receiver,
-         sender: user_sender
-      )
-end
+# 100.times do
+#    user_sender = User.all.sample
+#    user_receiver = user_sender
+#    while user_receiver == user_sender
+#       user_receiver = User.all.sample
+#    end
+#       PrivateMessage.create( 
+#          content: Faker::Lorem.sentence(word_count: 5),
+#          recipient: user_receiver,
+#          sender: user_sender
+#       )
+#end

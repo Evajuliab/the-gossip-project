@@ -27,44 +27,34 @@
 </div>
 </nav>
 
+    <%= form_for new_user_path, method: :post do |f| %>
 
+        <h3>Crée ton compte</h3>
+       
+        <div class="card">
+        <div class="card-body">
 
+        
+       
+        <div class="mb-3">
+       
+        <%= f.label :email, { class: "form-label"} %>
+        <%= f.text_field :email, { class: "form-control", placeholder: "email" } %>
+        </div>
 
-<body>
-<h1 class="text-center"> Bienvenue <%= params[:user_entry] %></h1>
+      
+         <div class="mb-3">
 
-<p class="text-center">Voici notre site de potins, plutot chouette non ?</p>
+         <%= f.label :mot_de_passe, { class: "form-label"} %> </br>
+         <%= password_field_tag :password %>
+         </div>
+      
+         <%= label_tag :confirme_ton_mot_de_passe %></br>
+         <%= password_field_tag :password_confirmation %> </br></br>
+    
+ <%= f.submit "confirmer",  class: "btn btn-primary"%>
 
-<p class="text-center">La liste des potins : </br>
-</br>
-</p>
+ 
+       
+    <% end %>
 
-
-<% @gossips.each.with_index do |gossip, index| %>
-
-
-   
-  <div class="mx-auto" style="Width 25%;">
-    <div class="row">
-  <div class="col-sm-8">
-<div class="card">
-  <div class="card-header">
-    Gossip n° <%= index + 1%>
-  </div>
-  <div class="row">
-  <div class="col-sm-8">
-  <div class="card-body">
-    <h5 class="card-title">Titre</h5>
-    <p class="card-text"><%= gossip.title%></p>
-  
-    <class="btn btn-primary"> <%= link_to "Gossip n° ", gossip_path(gossip)%> <%= index + 1%>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</br>
-
-<% end %>
-
-</body>

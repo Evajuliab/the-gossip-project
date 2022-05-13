@@ -27,44 +27,19 @@
 </div>
 </nav>
 
+<h1> Voici la page profil de <%= @user.first_name %> <%= @user.last_name %> </h1>
+
+
+Son prénom : <%= @user.first_name %></br>
+Son nom : <%= @user.last_name %></br>
+sa description : <%= @user.description %></br>
+son mail : <%= @user.email %> </br>
+Son age : <%= @user.age %> ans</br>
+Il vient de : <%= @user.city.name %> 
 
 
 
-<body>
-<h1 class="text-center"> Bienvenue <%= params[:user_entry] %></h1>
+<button type="button" class="btn btn-outline-secondary"><%= link_to "En savoir plus sur sa ville", city_path%></button>
 
-<p class="text-center">Voici notre site de potins, plutot chouette non ?</p>
+<button type="button" class="btn btn-outline-secondary"><%= link_to "Créer un utiisateur", signup_path%></button>
 
-<p class="text-center">La liste des potins : </br>
-</br>
-</p>
-
-
-<% @gossips.each.with_index do |gossip, index| %>
-
-
-   
-  <div class="mx-auto" style="Width 25%;">
-    <div class="row">
-  <div class="col-sm-8">
-<div class="card">
-  <div class="card-header">
-    Gossip n° <%= index + 1%>
-  </div>
-  <div class="row">
-  <div class="col-sm-8">
-  <div class="card-body">
-    <h5 class="card-title">Titre</h5>
-    <p class="card-text"><%= gossip.title%></p>
-  
-    <class="btn btn-primary"> <%= link_to "Gossip n° ", gossip_path(gossip)%> <%= index + 1%>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</br>
-
-<% end %>
-
-</body>

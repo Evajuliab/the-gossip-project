@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* CRUD succinct des utilisateurs : création
+* système de login / logout avec une page de connexion
+* potins créés soient associés à l'utilisateur en cours, idem pour les commentaires
+* rendre impossible la création de potin si l'utilisateur n'est pas connecté. Idem pour show du potin
+* Édition et destruction des potins
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

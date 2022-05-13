@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
 <div class="container-fluid">
 <a class="navbar-brand" <%= link_to "The Gossip project", root_path %></a>
@@ -29,42 +30,34 @@
 
 
 
+<% flash.each do |type, msg| %>
+  <div class="alert alert-danger" role="alert">
 
-<body>
-<h1 class="text-center"> Bienvenue <%= params[:user_entry] %></h1>
+      <%= msg %>
+      </div>
+  <% end %>
 
-<p class="text-center">Voici notre site de potins, plutot chouette non ?</p>
+<%= form_for signin_path,  method: 'post' do |f| %>
 
-<p class="text-center">La liste des potins : </br>
-</br>
-</p>
-
-
-<% @gossips.each.with_index do |gossip, index| %>
-
-
+    <h1>Login</h1>
+    </br>
+    <div class="card">
+    <div class="card-body">
    
-  <div class="mx-auto" style="Width 25%;">
-    <div class="row">
-  <div class="col-sm-8">
-<div class="card">
-  <div class="card-header">
-    Gossip n° <%= index + 1%>
-  </div>
-  <div class="row">
-  <div class="col-sm-8">
-  <div class="card-body">
-    <h5 class="card-title">Titre</h5>
-    <p class="card-text"><%= gossip.title%></p>
+    <div class="mb-3">
+   
+      <%= f.label :email, {class: "form-label"}  %>
+      <%= text_field_tag :email%></br></br>
+     </div>
+    
+     <div class="mb-3">
+      <%= f.label :password, {class: "form-label"} %>
+      <%= password_field_tag :password %>
+     </div></br>
   
-    <class="btn btn-primary"> <%= link_to "Gossip n° ", gossip_path(gossip)%> <%= index + 1%>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</br>
-
+     <%= f.submit "confirmer",  class: "btn btn-primary"%> </br></br>
+   
 <% end %>
 
-</body>
+       
+

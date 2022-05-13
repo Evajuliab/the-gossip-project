@@ -1,0 +1,10 @@
+
+</br>
+nom : <%= comment.name %> </br>
+
+commentaire : <%= comment.body %> </br>
+
+ Il y a <%= time_ago_in_words(comment.created_at) %> 
+
+<%= button_to 'Delete',[comment.gossip, comment], method: :delete, data: {confirm: 'êtes vous sûr ?'}%>
+
