@@ -9,7 +9,13 @@
 require 'faker'
 
 
-
+20.times do 
+   Gossip.create(
+      title: Faker::Book.unique.title,
+      user: User.all.sample,
+      content: Faker::Movies::HarryPotter.quote
+   )
+end
 
 
 10.times do 
@@ -24,18 +30,12 @@ end
      last_name: Faker::Name.last_name,
      description: Faker::Lorem.sentence(word_count: 10),
      email: Faker::Internet.email,
-     age: rand(1..99),
-     city: City.all.sample
-     )
+     age: rand(1..90),
+     city: City.all.sample,
+     password: Faker::Lorem.characters(number: rand(7..12) 
+     ))
 end
 
-20.times do 
-   Gossip.create(
-      title: Faker::Book.unique.title,
-      user: User.all.sample,
-      content: Faker::Movies::HarryPotter.quote
-   )
-end
 
 10.times do |n|
    Tag.create(
@@ -52,7 +52,7 @@ rand(1..3).times do
    end
 end
 
-# 100.times do
+# 50.times do
 #    user_sender = User.all.sample
 #    user_receiver = user_sender
 #    while user_receiver == user_sender
@@ -63,4 +63,4 @@ end
 #          recipient: user_receiver,
 #          sender: user_sender
 #       )
-#end
+# end

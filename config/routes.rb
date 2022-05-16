@@ -24,8 +24,9 @@ root to: 'gossips#index'
  get '/user/:id' , to: 'users#show', as: 'user'
 
 
-get '/signup', to: 'users#new'
-post'/signup', to: 'users#create'
+
+
+resources :users
 
 post "/signin", to: "sessions#create", as: "signin"
 get '/signin', to: "sessions#new"
@@ -34,7 +35,8 @@ get '/logout', to: 'sessions#destroy'
 resources :gossips do
   resources :comments
 end
-resources :user
+
+
 resources :cities
 
 end
